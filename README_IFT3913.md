@@ -21,3 +21,6 @@ Carl Thibault - 0985781
 - com.marginallyclever.makelangelo.makeart.io > LoadScratch2.java -> resolveBoolean ?
 - com.marginallyclever.makelangelo.plotter > Plotter.java -> turtleMove
 - com.marginallyclever.convenience > NameThatColor.java -> find
+- com.marginallyclever.convenience > QuadGraph.java -> split, countPoints, insert, search
+- com.marginallyclever.convenience > ColorRGB.java -> toutes les méthodes
+- com.marginallyclever.convenience > ColorPalette.java -> quantizeIndex
