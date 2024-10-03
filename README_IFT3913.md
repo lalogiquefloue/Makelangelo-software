@@ -17,5 +17,5 @@ Carl Thibault - 0985781
 - com.marginallyclever.convenience > Histogram.java -> possible de tester avec la classe BufferedImage?
 - com.marginallyclever.util > MarginallyCleverTranslationXmlFileHelper.java -> possible à tester ?
 - com.marginallyclever.convenience.helpers > MathHelper.java -> Toutes les fonctions
-- com.marginallyclever.makelangelo.makeart.tools > InfillTurtle.java -> getIntersection, addPaddingToBounds
+- com.marginallyclever.makelangelo.makeart.tools > InfillTurtle.java -> possible de tester "run"?
 - com.marginallyclever.makelangelo.makeart.io > LoadScratch2.java -> resolveBoolean ?
