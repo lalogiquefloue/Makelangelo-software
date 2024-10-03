@@ -19,3 +19,4 @@ Carl Thibault - 0985781
 - com.marginallyclever.convenience.helpers > MathHelper.java -> equals
 - com.marginallyclever.makelangelo.makeart.tools > InfillTurtle.java -> possible de tester "run"?
 - com.marginallyclever.makelangelo.makeart.io > LoadScratch2.java -> resolveBoolean ?
+- com.marginallyclever.makelangelo.plotter > Plotter.java -> turtleMove
