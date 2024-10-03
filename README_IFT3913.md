@@ -11,7 +11,7 @@ Carl Thibault - 0985781
 
 ## Fonctions potentielles à tester
 
-- com.marginallyclever.convenience > ConvexHull.java -> pointIsInTriangleXY
+- com.marginallyclever.convenience > ConvexHull.java -> pointIsInTriangleXY (PAS UNE MÉTHODE PUBLIQUE)
 - com.marginallyclever.makelangelo.plotter.plotterrenderer > Polargraph.java -> IK, FK
 - com.marginallyclever.makelangelo.donatelloimpl.nodes > PathImageMask.java -> intensity, sampleImageUnderStep
 - com.marginallyclever.convenience > Histogram.java -> possible de tester avec la classe BufferedImage?
