@@ -20,3 +20,4 @@ Carl Thibault - 0985781
 - com.marginallyclever.makelangelo.makeart.tools > InfillTurtle.java -> possible de tester "run"?
 - com.marginallyclever.makelangelo.makeart.io > LoadScratch2.java -> resolveBoolean ?
 - com.marginallyclever.makelangelo.plotter > Plotter.java -> turtleMove
+- com.marginallyclever.convenience > NameThatColor.java -> find
