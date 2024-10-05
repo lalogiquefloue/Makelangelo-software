@@ -18,8 +18,8 @@ Carl Thibault - 0985781
 - com.marginallyclever.util > MarginallyCleverTranslationXmlFileHelper.java -> possible à tester ?
 - com.marginallyclever.convenience.helpers > MathHelper.java -> equals (WIP - Carl)
 - com.marginallyclever.makelangelo.makeart.tools > InfillTurtle.java -> possible de tester "run"?
-- com.marginallyclever.makelangelo.makeart.io > LoadScratch2.java -> resolveBoolean (PAS UNE MÉTHODE PUBLIQUE)
-- com.marginallyclever.makelangelo.plotter > Plotter.java -> tester load avec fichier sb2 ?
+- com.marginallyclever.makelangelo.makeart.io > LoadScratch2.java -> tester load avec fichier sb2 ?
+- com.marginallyclever.makelangelo.plotter > Plotter.java -> turtleMove (WIP - CARL)
 - ~~com.marginallyclever.convenience > NameThatColor.java -> find (DEPRECATED)~~
 - com.marginallyclever.convenience > QuadGraph.java -> split, countPoints, insert, search
 - ~~com.marginallyclever.convenience > ColorRGB.java -> toutes les méthodes (DEPRECATED)~~
