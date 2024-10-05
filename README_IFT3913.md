@@ -24,3 +24,4 @@ Carl Thibault - 0985781
 - com.marginallyclever.convenience > QuadGraph.java -> split, countPoints, insert, search
 - ~~com.marginallyclever.convenience > ColorRGB.java -> toutes les méthodes (DEPRECATED)~~
 - ~~com.marginallyclever.convenience > ColorPalette.java -> quantizeIndex (DEPRECATED)~~
+- Makelangelo > com.marginallyclever.makelangelo.turtle > Turtle.java -> rotate (WIP - CARL)
