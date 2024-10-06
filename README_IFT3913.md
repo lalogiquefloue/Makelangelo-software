@@ -7,7 +7,7 @@ Carl Thibault - 0985781
 
 ## Tests ajoutés 
 
-| Package Path                                          | Nom de la classe   | Method Name    | Liens |
+| Package                                          | Nom de la classe   | Nom de la méthode    | Liens |
 |------------------------------------------------------|-------------------|-----------------|--------|
 | `com.marginallyclever.makelangelo.turtle`           | `Turtle.java`     | `rotate`        | [TurtleTest.java](src/test/java/com/marginallyclever/makelangelo/turtle/TurtleTest.java) |
 | `com.marginallyclever.makelangelo.makeart.imagefilter` | `FilterCMYK.java` | `filter`     | [FilterCMYKTest.java](src/test/java/com/marginallyclever/makelangelo/makeart/imagefilter/FilterCMYKTest.java) |
