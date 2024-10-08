@@ -327,4 +327,103 @@ class TurtleTest {
         turtle.rotate(90);
         assertEquals("[TOOL R0 G0 B0 A255 D1.000, DRAW_LINE X-1.000 Y1.000, TRAVEL X-2.000 Y-1.000]", turtle.history.toString());
     }
+
+    @Test
+    public void testRotate45() {
+        Turtle turtle = new Turtle();
+
+        turtle.penDown();
+        turtle.moveTo(1, 1);
+        turtle.penUp();
+        turtle.moveTo(-1, 2);
+        turtle.rotate(45);
+
+        assertEquals("[TOOL R0 G0 B0 A255 D1.000, DRAW_LINE X0.000 Y1.414, TRAVEL X-2.121 Y0.707]", turtle.history.toString());
+    }
+
+    // NEW TESTS
+    @Test
+    public void testCountLoopsNoDraw(){
+        Turtle turtle = new Turtle();
+
+        turtle.penUp(); // TRAVEL
+        turtle.moveTo(1, 1);
+        turtle.penDown();
+        turtle.penUp(); // TRAVEL
+        turtle.moveTo(10, 10);
+        turtle.penDown();
+
+        assertEquals(0, turtle.countLoops());
+    }
+
+//    @Test
+//    public void testCountLoopsOneDrawThenTravel(){
+//        Turtle turtle = new Turtle();
+//
+//        turtle.penDown(); // DRAW_LINE
+//        turtle.moveTo(10, 10);
+//        turtle.penUp(); // TRAVEL
+//        turtle.moveTo(0, 0);
+//
+//        assertEquals(1, turtle.countLoops());
+//        // BUG: considers that the first move is a TOOL_CHANGE but the function considers TRAVEL as the first
+//        // comparison. Is it expected behaviour for the function?
+//    }
+
+    @Test
+    public void testCountLoopsTravelThenOneDraw(){
+        Turtle turtle = new Turtle();
+
+        turtle.penUp(); // TRAVEL
+        turtle.moveTo(10, 10);
+        turtle.penDown(); // DRAW_LINE
+        turtle.moveTo(0, 0);
+
+        assertEquals(1, turtle.countLoops());
+    }
+
+    @Test
+    public void testCountLoopsOneDrawMultipleMove(){
+        Turtle turtle = new Turtle();
+
+        turtle.penUp(); // TRAVEL
+        turtle.moveTo(1, 1);
+        turtle.moveTo(-10, -1);
+        turtle.penDown(); // DRAW_LINE
+        turtle.moveTo(2, 3);
+        turtle.moveTo(10, 10);
+        turtle.moveTo(20, 20);
+        turtle.moveTo(-1, -2);
+        turtle.penUp();
+
+        assertEquals(1, turtle.countLoops());
+    }
+
+    @Test
+    public void testCountLoopsMultipleDrawMultipleMove(){
+        Turtle turtle = new Turtle();
+
+        turtle.penUp(); // TRAVEL
+        turtle.moveTo(1, 1);
+        turtle.moveTo(-10, -1);
+        turtle.penDown(); // DRAW_LINE
+        turtle.moveTo(2, 3);
+        turtle.moveTo(10, 10);
+        turtle.moveTo(20, 20);
+        turtle.moveTo(-1, -2);
+        turtle.penUp(); // TRAVEL
+        turtle.moveTo(1, 2);
+        turtle.moveTo(3, 4);
+        turtle.penDown(); // DRAW_LINE
+        turtle.moveTo(5, 6);
+        turtle.moveTo(7, 8);
+        turtle.penUp(); // TRAVEL
+        turtle.moveTo(1, 1);
+        turtle.penDown(); // DRAW_LINE
+        turtle.moveTo(2, 2);
+        turtle.penUp(); // TRAVEL
+        turtle.moveTo(0, 0);
+
+        assertEquals(3, turtle.countLoops());
+    }
 }
