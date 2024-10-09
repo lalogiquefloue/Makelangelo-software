@@ -30,13 +30,14 @@ Carl Thibault - 0985781
 - com.marginallyclever.makelangelo.donatelloimpl.nodes > PathImageMask.java -> sampleImageUnderStep (PAS UNE MÉTHODE PUBLIQUE)
 - com.marginallyclever.convenience > Histogram.java -> possible de tester avec la classe BufferedImage?
 - com.marginallyclever.util > MarginallyCleverTranslationXmlFileHelper.java -> possible à tester ?
-- com.marginallyclever.convenience.helpers > MathHelper.java -> equals (WIP - Carl)
+- com.marginallyclever.convenience.helpers > MathHelper.java -> equals (DONE - Carl)
 - com.marginallyclever.makelangelo.makeart.tools > InfillTurtle.java -> possible de tester "run"?
 - com.marginallyclever.makelangelo.makeart.io > LoadScratch2.java -> tester load avec fichier sb2 ?
-- com.marginallyclever.makelangelo.plotter > Plotter.java -> turtleMove (WIP - CARL)
+- com.marginallyclever.makelangelo.plotter > Plotter.java -> turtleMove (DONE - CARL)
 - ~~com.marginallyclever.convenience > NameThatColor.java -> find (DEPRECATED)~~
 - com.marginallyclever.convenience > QuadGraph.java -> split, countPoints, insert, search
 - ~~com.marginallyclever.convenience > ColorRGB.java -> toutes les méthodes (DEPRECATED)~~
 - ~~com.marginallyclever.convenience > ColorPalette.java -> quantizeIndex (DEPRECATED)~~
-- Makelangelo > com.marginallyclever.makelangelo.turtle > Turtle.java -> rotate (WIP - CARL)
-- com.marginallyclever.makelangelo.makeart.imagefilter > FilterCMYK.java (WIP - CARL)
+- Makelangelo > com.marginallyclever.makelangelo.turtle > Turtle.java -> rotate (DONE - CARL)
+- com.marginallyclever.makelangelo.makeart.imagefilter > FilterCMYK.java (DONE - CARL)
+- com.marginallyclever.makelangelo.makeart > TransformedImage.java
