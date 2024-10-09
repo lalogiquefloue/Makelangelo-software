@@ -20,7 +20,7 @@ Carl Thibault - 0985781
 | `TODO` | `TODO` | `TODO` | `TODO` | `TODO` |
 | `TODO` | `TODO` | `TODO` | `TODO` | `TODO` |
 
-* Possible bogue trouvé. Les tests en question ont été désactivé pour ne pas empêcher les github actions de s'exécuter.
+\* Possible bogue trouvé. Les tests en question ont été désactivé pour ne pas empêcher les github actions de s'exécuter.
 
 
 ## Fonctions potentielles à tester
