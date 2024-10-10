@@ -19,11 +19,10 @@ class PlotterTest {
     }
 
     @Test
-    void turtleTravel() {
+    void turtleMoveTravel() {
         TurtleMove m0 = new TurtleMove(10.0, 10.0, MovementType.TRAVEL);
         TurtleMove m1 = new TurtleMove(0.0, 0.0, MovementType.TRAVEL);
 
-        plotter.findHome();
         plotter.turtleMove(m0);
         plotter.turtleMove(m1);
 
@@ -34,11 +33,10 @@ class PlotterTest {
     }
 
     @Test
-    void turtleMove() {
+    void turtleMoveDrawLine() {
         TurtleMove m0 = new TurtleMove(10.0, 10.0, MovementType.DRAW_LINE);
         TurtleMove m1 = new TurtleMove(0.0, 0.0, MovementType.DRAW_LINE);
 
-        plotter.findHome();
         plotter.turtleMove(m0);
         plotter.turtleMove(m1);
 
@@ -49,29 +47,11 @@ class PlotterTest {
     }
 
     @Test
-    void turtleFindHome(){
-        TurtleMove m0 = new TurtleMove(10.0, 10.0, MovementType.DRAW_LINE);
-
-        plotter.turtleMove(m0);
-
-        Assertions.assertFalse(plotter.getDidFindHome());
-
-        plotter.findHome();
-
-        Point2D expectedPosition = new Point2D(0.0, 0.0);
-        Assertions.assertEquals(expectedPosition.x, plotter.getPos().x);
-        Assertions.assertEquals(expectedPosition.y, plotter.getPos().y);
-        Assertions.assertTrue(plotter.getPenIsUp());
-        Assertions.assertTrue(plotter.getDidFindHome());
-    }
-
-    @Test
-    void turtleComplexCommandSequence(){
+    void turtleMoveComplexCommandSequence(){
         TurtleMove m0 = new TurtleMove(10.0, 10.0, MovementType.TRAVEL);
         TurtleMove m1 = new TurtleMove(-10.0, -10.0, MovementType.DRAW_LINE);
         TurtleMove m2 = new TurtleMove(12.3, 32.1, MovementType.TRAVEL);
 
-        plotter.findHome();
         plotter.turtleMove(m0);
         plotter.turtleMove(m1);
         plotter.turtleMove(m2);
@@ -83,15 +63,14 @@ class PlotterTest {
     }
 
     @Test
-    void turtleToolChange(){
+    void turtleMoveToolChange(){
         TurtleMove m0 = new TurtleMove(10.0, 10.0, MovementType.TOOL_CHANGE);
 
-        plotter.findHome();
         plotter.turtleMove(m0);
 
         Point2D expectedPosition = new Point2D(0.0, 0.0);
         Assertions.assertEquals(expectedPosition.x, plotter.getPos().x);
         Assertions.assertEquals(expectedPosition.y, plotter.getPos().y);
-        Assertions.assertTrue(plotter.getPenIsUp());
+        Assertions.assertFalse(plotter.getPenIsUp());
     }
 }
