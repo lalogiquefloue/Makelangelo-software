@@ -13,12 +13,12 @@ Carl Thibault - 0985781
 | `com.marginallyclever.makelangelo.turtle` | `Turtle.java` | `countLoops` | [TurtleTest.java](src/test/java/com/marginallyclever/makelangelo/turtle/TurtleTest.java) * | `TODO` |
 | `com.marginallyclever.makelangelo.makeart.imagefilter` | `FilterCMYK.java` | `filter`     | [FilterCMYKTest.java](src/test/java/com/marginallyclever/makelangelo/makeart/imagefilter/FilterCMYKTest.java) | `TODO` |
 | `com.marginallyclever.makelangelo.plotter`         | `Plotter.java`    | `turtleMove`    | [PlotterTest.java](src/test/java/com/marginallyclever/makelangelo/plotter/PlotterTest.java) | `TODO` |
-| `com.marginallyclever.convenience.helpers`          | `MathHelper.java` | `equals`        | [MathHelperTest.java](src/test/java/com/marginallyclever/convenience/helpers/MathHelperTest.java) * | `TODO` |
-| `TODO` | `TODO` | `TODO` | `TODO` | `TODO` |
-| `TODO` | `TODO` | `TODO` | `TODO` | `TODO` |
-| `TODO` | `TODO` | `TODO` | `TODO` | `TODO` |
-| `TODO` | `TODO` | `TODO` | `TODO` | `TODO` |
-| `TODO` | `TODO` | `TODO` | `TODO` | `TODO` |
+| `com.marginallyclever.convenience.helpers`          | `MathHelper.java` | `equals`        | [MathHelperTest.java](src/test/java/com/marginallyclever/convenience/helpers/MathHelperTest.java) * | `Maximize branch coverage of this function - Case 1 - Bug found and fixed` |
+| `com.marginallyclever.convenience.helpers`          | `MathHelper.java` | `equals`        | [MathHelperTest.java](src/test/java/com/marginallyclever/convenience/helpers/MathHelperTest.java) * | `Maximize branch coverage of this function - Case 2 - Bug found and fixed` |
+| `com.marginallyclever.convenience.helpers`          | `MathHelper.java` | `equals`        | [MathHelperTest.java](src/test/java/com/marginallyclever/convenience/helpers/MathHelperTest.java) * | `Maximize branch coverage of this function - Case 3 - Bug found and fixed` |
+| `com.marginallyclever.convenience.helpers`          | `MathHelper.java` | `equals`        | [MathHelperTest.java](src/test/java/com/marginallyclever/convenience/helpers/MathHelperTest.java) * | `Maximize branch coverage of this function - Case 4 - Bug found and fixed` |
+| `com.marginallyclever.convenience.helpers`          | `MathHelper.java` | `equals`        | [MathHelperTest.java](src/test/java/com/marginallyclever/convenience/helpers/MathHelperTest.java) * | `Maximize branch coverage of this function - Case 5 - Bug found and fixed` |
+| `com.marginallyclever.convenience.helpers`          | `MathHelper.java` | `equals`        | [MathHelperTest.java](src/test/java/com/marginallyclever/convenience/helpers/MathHelperTest.java) * | `Maximize branch coverage of this function - Case 6 - Bug found and fixed` |
 
 \* Possible bogue trouvé. Les tests en question ont été désactivé pour ne pas empêcher les github actions de s'exécuter.
 

@@ -87,33 +87,126 @@ public class MathHelperTest {
         }
     }
 
-    // NEW TEST
+    //
+    // NEW TESTS
+    //
+
+    // Case 1: 
+    // First condition passes (a0 == b0 and a1 == b1)
+    // Second condition fails (a0 != b1 and a1 != b0) (but is never reached)
     @Test
-    void testEquals() {
-        Tuple2d a0 = new Vector2d(0.0,0.0);
-        Tuple2d a1 = new Vector2d(1.0,0.0);
-        Tuple2d b0 = new Vector2d(0.0,0.0);
-        Tuple2d b1 = new Vector2d(1.0,0.0);
-        Assertions.assertTrue(MathHelper.equals(a0, a1, b0, b1, 0.01));
-        Assertions.assertFalse(MathHelper.equals(a0, a1, b0, b1, 0.0));
+    void testEqualsBranche1() {
+        // Arrange
+        double epsilon = 0.01;
+        Tuple2d a0 = new Vector2d(0.0, 0.0);
+        Tuple2d a1 = new Vector2d(1.0, 1.0);
+        Tuple2d b0 = new Vector2d(0.0, 0.0);
+        Tuple2d b1 = new Vector2d(1.0, 1.0);
 
-        Tuple2d c0 = new Vector2d(0.0,0.09);
-        Tuple2d c1 = new Vector2d(1.0,0.09);
-        Assertions.assertFalse(MathHelper.equals(c0, c1, a0, a1, 0.08));
-        Assertions.assertTrue(MathHelper.equals(c0, c1, a0, a1, 0.1));
-        Assertions.assertFalse(MathHelper.equals(c0, c1, a0, a1, 0.09));
+        // Act
+        boolean result = MathHelper.equals(a0, a1, b0, b1, epsilon);
 
-        Tuple2d d0 = new Vector2d(0.0,0.0);
-        Tuple2d d1 = new Vector2d(0.0,0.0);
-        Tuple2d e0 = new Vector2d(0.0,0.0);
-        Tuple2d e1 = new Vector2d(0.0,0.0);
-        Assertions.assertTrue(MathHelper.equals(d0, d1, e0, e1 ,0.1));
-        Assertions.assertFalse(MathHelper.equals(d0, d1, e0, e1 ,0.0));
+        // Assert
+        Assertions.assertTrue(result);
+    }
 
-        // TODO: possible bug?
-        //Tuple2d f0 = new Vector2d(0.0,0.0);
-        //Tuple2d f1 = new Vector2d(2.0,0.0);
-        //Assertions.assertFalse(MathHelper.equals(f0, f1, a0, a1 ,0.1));
-        //Assertions.assertTrue(MathHelper.equals(f0, f1, a0, a1 ,1.1));
+        // Case 2: 
+        // First condition fails (a0 == b0 and a1 != b1)
+        // Second condition fails (a0 != b1 and a1 != b0)
+        @Test
+        void testEqualsBranche2() {
+        // Arrange
+        double epsilon = 0.01;
+        Tuple2d a0 = new Vector2d(0.0, 0.0);
+        Tuple2d a1 = new Vector2d(1.0, 1.0);
+        Tuple2d b0 = new Vector2d(0.0, 0.0);
+        Tuple2d b1 = new Vector2d(1.0, 1.02);
+    
+        // Act
+        boolean result = MathHelper.equals(a0, a1, b0, b1, epsilon);
+
+        // Assert
+        Assertions.assertFalse(result);
+    }
+
+        // Case 3: 
+        // First condition fails (a0 != b0 and a1 == b1)
+        // Second condition fails (a0 != b1 and a1 != b0)
+        @Test
+        void testEqualsBranche3() {
+        // Arrange
+        double epsilon = 0.01;
+        Tuple2d a0 = new Vector2d(0.0, 0.0);
+        Tuple2d a1 = new Vector2d(1.0, 1.0);
+        Tuple2d b0 = new Vector2d(0.02, 0.0);
+        Tuple2d b1 = new Vector2d(1.0, 1.0);
+    
+        // Act
+        boolean result = MathHelper.equals(a0, a1, b0, b1, epsilon);
+
+        // Assert
+        Assertions.assertFalse(result);
+    }
+
+    // Case 4: 
+    // First condition fails (a0 != b0 and a1 != b1)
+    // Second condition passes (a0 == b1 and a1 == b0)
+    @Test
+    void testEqualsBranche4() {
+        // Arrange
+        double epsilon = 0.01;
+        Tuple2d a0 = new Vector2d(0.0, 0.0);
+        Tuple2d a1 = new Vector2d(1.0, 1.0);
+        Tuple2d b0 = new Vector2d(1.0, 1.0);
+        Tuple2d b1 = new Vector2d(0.0, 0.0);
+
+        // Act
+        boolean result = MathHelper.equals(a0, a1, b0, b1, epsilon);
+
+        // Assert
+        Assertions.assertTrue(result);
+    }
+
+    // Case 5: 
+    //
+    // Important test that revealed a bug in the previous implementation,
+    // showcasing that branch coverage maximization can be worthwhile.
+    //
+    // First condition fails (a0 != b0 and a1 != b1)
+    // Second condition passes (a0 != b1 and a1 == b0)
+    @Test
+    void testEqualsBranche5() {
+        // Arrange
+        double epsilon = 0.01;
+        Tuple2d a0 = new Vector2d(0.0, 0.0);
+        Tuple2d a1 = new Vector2d(1.0, 1.0);
+        Tuple2d b0 = new Vector2d(1.0, 1.0);
+        Tuple2d b1 = new Vector2d(0.005, 0.02);
+
+        // Act
+        boolean result = MathHelper.equals(a0, a1, b0, b1, epsilon);
+
+        // Assert
+        Assertions.assertFalse(result);
+    }
+
+    // Case 6: 
+    // First condition fails (a0 != b0 and a1 != b1)
+    // Second condition passes (a0 == b1 and a1 != b0)
+    @Test
+    void testEqualsBranche6() {
+        // Arrange
+        double epsilon = 0.01;
+        Tuple2d a0 = new Vector2d(0.0, 0.0);
+        Tuple2d a1 = new Vector2d(1.0, 1.0);
+        Tuple2d b0 = new Vector2d(1.0, 1.2);
+        Tuple2d b1 = new Vector2d(0.00, 0.000);
+
+        // Act
+        boolean result = MathHelper.equals(a0, a1, b0, b1, epsilon);
+
+        // Assert
+        Assertions.assertFalse(result);
     }
 }
+
