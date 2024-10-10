@@ -287,7 +287,7 @@ class TurtleTest {
         }
     }
 
-    // NEW TESTS
+    // NEW TESTS FOR THE `rotate` FUNCTION
     // Test different rotation angles on a simple turtle sequence and verify that the turtle's movement history matches expectations
     @ParameterizedTest
     @CsvSource({
@@ -298,23 +298,28 @@ class TurtleTest {
             "45, '[TOOL R0 G0 B0 A255 D1.000, DRAW_LINE X0.000 Y1.414, TRAVEL X-2.121 Y0.707]'"
     })
     public void testRotate(int degrees, String expectedHistory) {
+        // ARRANGE
         Turtle turtle = new Turtle();
 
+        // ACT
         turtle.penDown();
         turtle.moveTo(1, 1);
         turtle.penUp();
         turtle.moveTo(-1, 2);
-
         turtle.rotate(degrees);
+
+        // ASSERT
         assertEquals(expectedHistory, turtle.history.toString());
     }
 
-    // NEW TESTS
-    // Test that the countLoops function returns 0 after no drawing were made
+    // NEW TESTS FOR THE 'countLoops' FUNCTION
+    // Tests that the countLoops function returns 0 after no drawing were made, but the pen was put down momentarily
     @Test
     public void testCountLoopsNoDraw(){
+        // ARRANGE
         Turtle turtle = new Turtle();
 
+        // ACT
         turtle.penUp(); // TRAVEL
         turtle.moveTo(1, 1);
         turtle.penDown();
@@ -322,10 +327,11 @@ class TurtleTest {
         turtle.moveTo(10, 10);
         turtle.penDown();
 
+        // ASSERT
         assertEquals(0, turtle.countLoops());
     }
 
-    // Test that countLoops function correctly counts one drawing operation 
+    // Tests that the countLoops function correctly counts when starting with one drawing operation followed by a travel
     // POSSIBLE BUG: considers that the first move is a TOOL_CHANGE but the function considers TRAVEL as the first
     // comparison. Is it expected behaviour for the function?
 //    @Test
@@ -340,24 +346,29 @@ class TurtleTest {
 //        assertEquals(1, turtle.countLoops());
 //    }
 
-    // Test that countLoops function correctly counts one drawing operation 
+    // Tests that the countLoops function correctly counts when starting with a travel followed with one drawing operation 
     @Test
     public void testCountLoopsTravelThenOneDraw(){
+        // ARRANGE
         Turtle turtle = new Turtle();
 
+        // ACT
         turtle.penUp(); // TRAVEL
         turtle.moveTo(10, 10);
         turtle.penDown(); // DRAW_LINE
         turtle.moveTo(0, 0);
 
+        // ASSERT
         assertEquals(1, turtle.countLoops());
     }
 
     // Test that countLoops function correctly counts one drawing operation after a complex drawing sequence
     @Test
     public void testCountLoopsOneDrawMultipleMove(){
+        // ARRANGE
         Turtle turtle = new Turtle();
 
+        //ACT
         turtle.penUp(); // TRAVEL
         turtle.moveTo(1, 1);
         turtle.moveTo(-10, -1);
@@ -368,14 +379,17 @@ class TurtleTest {
         turtle.moveTo(-1, -2);
         turtle.penUp();
 
+        // ASSERT
         assertEquals(1, turtle.countLoops());
     }
 
     // Test that countLoops function correctly counts three drawing operation after a complex sequence
     @Test
     public void testCountLoopsMultipleDrawMultipleMove(){
+        // ARRANGE
         Turtle turtle = new Turtle();
 
+        // ACT
         turtle.penUp(); // TRAVEL
         turtle.moveTo(1, 1);
         turtle.moveTo(-10, -1);
@@ -397,6 +411,7 @@ class TurtleTest {
         turtle.penUp(); // TRAVEL
         turtle.moveTo(0, 0);
 
+        // ASSERT
         assertEquals(3, turtle.countLoops());
     }
 }
