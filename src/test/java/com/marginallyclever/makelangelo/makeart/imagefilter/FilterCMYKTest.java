@@ -19,7 +19,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 
 public class FilterCMYKTest {
-//    @Test
+    //@Test
     public void testConversion() throws IOException {
         PreferencesHelper.start();
         final String PATH_NAME = "target/classes/bill-murray";
@@ -38,7 +38,7 @@ public class FilterCMYKTest {
 
     // NEW TEST
     @Test
-    public void testFilter() throws IOException {
+    public void testFilter() {
 
         BufferedImage bufferedImage;
         int colorRGB;
@@ -62,7 +62,6 @@ public class FilterCMYKTest {
                 new SimpleEntry<>(Color.CYAN.getRGB(), new int[]{0, 255, 255, 255}),    // (0,255,255) -> (255,0,0,0) -> (0,255,255,255)
                 new SimpleEntry<>(Color.MAGENTA.getRGB(), new int[]{255, 0, 255, 255})  // (255,0,255) -> (0,255,0,0) -> (255,0,255,255)
         ));
-
 
         for (SimpleEntry<Integer, int[]> entry : testColors) {
             colorRGB = entry.getKey();
