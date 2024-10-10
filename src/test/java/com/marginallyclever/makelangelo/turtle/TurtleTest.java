@@ -2,6 +2,8 @@ package com.marginallyclever.makelangelo.turtle;
 
 import com.marginallyclever.convenience.Point2D;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvSource;
 
 import java.awt.*;
 import java.awt.geom.Rectangle2D;
@@ -286,8 +288,15 @@ class TurtleTest {
     }
 
     // NEW TESTS
-    @Test
-    public void testRotate360() {
+    @ParameterizedTest
+    @CsvSource({
+            "360, '[TOOL R0 G0 B0 A255 D1.000, DRAW_LINE X1.000 Y1.000, TRAVEL X-1.000 Y2.000]'",
+            "720, '[TOOL R0 G0 B0 A255 D1.000, DRAW_LINE X1.000 Y1.000, TRAVEL X-1.000 Y2.000]'",
+            "180, '[TOOL R0 G0 B0 A255 D1.000, DRAW_LINE X-1.000 Y-1.000, TRAVEL X1.000 Y-2.000]'",
+            "90, '[TOOL R0 G0 B0 A255 D1.000, DRAW_LINE X-1.000 Y1.000, TRAVEL X-2.000 Y-1.000]'",
+            "45, '[TOOL R0 G0 B0 A255 D1.000, DRAW_LINE X0.000 Y1.414, TRAVEL X-2.121 Y0.707]'"
+    })
+    public void testRotate(int degrees, String expectedHistory) {
         Turtle turtle = new Turtle();
 
         turtle.penDown();
@@ -295,50 +304,8 @@ class TurtleTest {
         turtle.penUp();
         turtle.moveTo(-1, 2);
 
-        turtle.rotate(360);
-        assertEquals("[TOOL R0 G0 B0 A255 D1.000, DRAW_LINE X1.000 Y1.000, TRAVEL X-1.000 Y2.000]", turtle.history.toString());
-
-        turtle.rotate(720);
-        assertEquals("[TOOL R0 G0 B0 A255 D1.000, DRAW_LINE X1.000 Y1.000, TRAVEL X-1.000 Y2.000]", turtle.history.toString());
-    }
-
-    @Test
-    public void testRotate180() {
-        Turtle turtle = new Turtle();
-
-        turtle.penDown();
-        turtle.moveTo(1, 1);
-        turtle.penUp();
-        turtle.moveTo(-1, 2);
-
-        turtle.rotate(180);
-        assertEquals("[TOOL R0 G0 B0 A255 D1.000, DRAW_LINE X-1.000 Y-1.000, TRAVEL X1.000 Y-2.000]", turtle.history.toString());
-    }
-
-    @Test
-    public void testRotate90() {
-        Turtle turtle = new Turtle();
-
-        turtle.penDown();
-        turtle.moveTo(1, 1);
-        turtle.penUp();
-        turtle.moveTo(-1, 2);
-
-        turtle.rotate(90);
-        assertEquals("[TOOL R0 G0 B0 A255 D1.000, DRAW_LINE X-1.000 Y1.000, TRAVEL X-2.000 Y-1.000]", turtle.history.toString());
-    }
-
-    @Test
-    public void testRotate45() {
-        Turtle turtle = new Turtle();
-
-        turtle.penDown();
-        turtle.moveTo(1, 1);
-        turtle.penUp();
-        turtle.moveTo(-1, 2);
-        turtle.rotate(45);
-
-        assertEquals("[TOOL R0 G0 B0 A255 D1.000, DRAW_LINE X0.000 Y1.414, TRAVEL X-2.121 Y0.707]", turtle.history.toString());
+        turtle.rotate(degrees);
+        assertEquals(expectedHistory, turtle.history.toString());
     }
 
     // NEW TESTS
