@@ -70,12 +70,24 @@ public class MathHelper {
 	 * @return true if (a0=b0 and a1=b1) or (a0=b1 and a1=b0).
 	 */
 	public static boolean equals(Tuple2d a0, Tuple2d a1, Tuple2d b0, Tuple2d b1, double epsilon) {
-		Vector2d c = new Vector2d(a0.x - b0.x, a0.y - b0.y);
-		Vector2d d = new Vector2d(a1.x - b1.x, a1.y - b1.y);
-		if(Math.abs(c.x)<epsilon && Math.abs(d.y)<epsilon) return true;
-		c.set(a0.x - b1.x, a0.y - b1.y);
-		d.set(a1.x - b0.x, a1.y - b0.y);
-		return (Math.abs(c.x)<epsilon && Math.abs(d.y)<epsilon);
+		if (pointsEqual(a0, b0, epsilon) && pointsEqual(a1, b1, epsilon)) {
+			return true;
+		}
+		if (pointsEqual(a0, b1, epsilon) && pointsEqual(a1, b0, epsilon)) {
+			return true;
+		}
+		return false;
+	}
+	
+	/**
+	 * Returns true if the two points are equal within the given epsilon.
+	 * @param p1 point
+	 * @param p2 point
+	 * @param epsilon margin of error
+	 * @return true if the two points are equal within the given epsilon
+	 */
+	private static boolean pointsEqual(Tuple2d p1, Tuple2d p2, double epsilon) {
+		return Math.abs(p1.x - p2.x) < epsilon && Math.abs(p1.y - p2.y) < epsilon;
 	}
 
 	/**
