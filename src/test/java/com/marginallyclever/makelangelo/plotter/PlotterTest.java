@@ -8,6 +8,8 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+// NEW TESTS
+// Tests of different movement combinations and verification of the expected destination and pen position
 class PlotterTest {
 
     Plotter plotter;
