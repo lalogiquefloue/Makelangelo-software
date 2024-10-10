@@ -36,11 +36,12 @@ public class FilterCMYKTest {
         ImageIO.write(filter.getK().getSourceImage(), EXT, new File(PATH_NAME + "K." + EXT));
     }
 
-    // NEW TEST
+    // NEW TEST FOR THE `filter` FUNCTION
     // Sequential testing of different RGB to CMYK image conversions 
     @Test
     public void testFilter() {
 
+        //ARRANGE
         BufferedImage bufferedImage;
         int colorRGB;
         int[] colorCMYK;
@@ -65,6 +66,7 @@ public class FilterCMYKTest {
         ));
 
         for (SimpleEntry<Integer, int[]> entry : testColors) {
+            // ARRANGE
             colorRGB = entry.getKey();
             colorCMYK = entry.getValue();
 
@@ -78,6 +80,8 @@ public class FilterCMYKTest {
 
             TransformedImage img = new TransformedImage(bufferedImage);
             FilterCMYK filter = new FilterCMYK(img);
+            
+            // ACT
             filter.filter();
 
             TransformedImage channelCyan    = filter.getC();
@@ -90,6 +94,7 @@ public class FilterCMYKTest {
             realYellow  = channelYellow.sample1x1(0,0);
             realBlack   = channelBlack.sample1x1(0,0);
 
+            // ASSERT
             assertEquals(expectedCyan, realCyan);
             assertEquals(expectedMagenta, realMagenta);
             assertEquals(expectedYellow, realYellow);
