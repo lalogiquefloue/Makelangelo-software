@@ -288,6 +288,7 @@ class TurtleTest {
     }
 
     // NEW TESTS
+    // Test different rotation angles on a simple turtle sequence and verify that the turtle's movement history matches expectations
     @ParameterizedTest
     @CsvSource({
             "360, '[TOOL R0 G0 B0 A255 D1.000, DRAW_LINE X1.000 Y1.000, TRAVEL X-1.000 Y2.000]'",
@@ -309,6 +310,7 @@ class TurtleTest {
     }
 
     // NEW TESTS
+    // Test that the countLoops function returns 0 after no drawing were made
     @Test
     public void testCountLoopsNoDraw(){
         Turtle turtle = new Turtle();
@@ -323,6 +325,9 @@ class TurtleTest {
         assertEquals(0, turtle.countLoops());
     }
 
+    // Test that countLoops function correctly counts one drawing operation 
+    // POSSIBLE BUG: considers that the first move is a TOOL_CHANGE but the function considers TRAVEL as the first
+    // comparison. Is it expected behaviour for the function?
 //    @Test
 //    public void testCountLoopsOneDrawThenTravel(){
 //        Turtle turtle = new Turtle();
@@ -333,10 +338,9 @@ class TurtleTest {
 //        turtle.moveTo(0, 0);
 //
 //        assertEquals(1, turtle.countLoops());
-//        // BUG: considers that the first move is a TOOL_CHANGE but the function considers TRAVEL as the first
-//        // comparison. Is it expected behaviour for the function?
 //    }
 
+    // Test that countLoops function correctly counts one drawing operation 
     @Test
     public void testCountLoopsTravelThenOneDraw(){
         Turtle turtle = new Turtle();
@@ -349,6 +353,7 @@ class TurtleTest {
         assertEquals(1, turtle.countLoops());
     }
 
+    // Test that countLoops function correctly counts one drawing operation after a complex drawing sequence
     @Test
     public void testCountLoopsOneDrawMultipleMove(){
         Turtle turtle = new Turtle();
@@ -366,6 +371,7 @@ class TurtleTest {
         assertEquals(1, turtle.countLoops());
     }
 
+    // Test that countLoops function correctly counts three drawing operation after a complex sequence
     @Test
     public void testCountLoopsMultipleDrawMultipleMove(){
         Turtle turtle = new Turtle();
