@@ -37,6 +37,7 @@ public class FilterCMYKTest {
     }
 
     // NEW TEST
+    // Sequential testing of different RGB to CMYK image conversions 
     @Test
     public void testFilter() {
 
