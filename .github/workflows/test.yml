@@ -31,8 +31,8 @@ jobs:
     - name: Build and Test with Maven - Configuration 1
       timeout-minutes: 15
       run: |
-        echo "Change garbage collection type."
-        export MAVEN_OPTS="-XX:+UseSerialGC"
+        echo "Change garbage collection type and reduce heap size."
+        export MAVEN_OPTS="-XX:+PrintFlagsFinal -XX:+UseSerialGC -XX:MaxHeapSize=2G -XX:MinHeapSize=4M"
         ./mvnw -B verify
         unset MAVEN_OPTS
 
