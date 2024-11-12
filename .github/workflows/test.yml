@@ -18,7 +18,8 @@ jobs:
 
     - name: Build and Test with Maven - Default Configuration
       timeout-minutes: 15
-      run: ./mvnw -B verify
+      run: |
+        ./mvnw -B verify
 
     - name: Build and Test with Maven - Print default flags
       timeout-minutes: 15
@@ -31,8 +32,24 @@ jobs:
     - name: Build and Test with Maven - Configuration 1
       timeout-minutes: 15
       run: |
-        echo "Change garbage collection type and reduce heap size."
-        export MAVEN_OPTS="-XX:+PrintFlagsFinal -XX:+UseSerialGC -XX:MaxHeapSize=2G -XX:MinHeapSize=4M"
+        echo "Test build with change of garbage collection type."
+        export MAVEN_OPTS="-XX:+PrintFlagsFinal -XX:+UseSerialGC"
+        ./mvnw -B verify
+        unset MAVEN_OPTS
+
+    - name: Build and Test with Maven - Configuration 2
+      timeout-minutes: 15
+      run: |
+        echo "Test build with reduced heap size."
+        export MAVEN_OPTS="-XX:+PrintFlagsFinal -XX:MaxHeapSize=2G -XX:MinHeapSize=4M"
+        ./mvnw -B verify
+        unset MAVEN_OPTS
+
+    - name: Build and Test with Maven - Configuration 3
+      timeout-minutes: 15
+      run: |
+        echo "Test build with 1 cpu core available for multithreading."
+        export MAVEN_OPTS="-XX:+PrintFlagsFinal -XX:ActiveProcessorCount=1"
         ./mvnw -B verify
         unset MAVEN_OPTS
 
