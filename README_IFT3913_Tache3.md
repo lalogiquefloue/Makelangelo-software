@@ -9,10 +9,10 @@ Carl Thibault - 0985781
 
 Lien vers la github action: [test.yml](.github/workflows/test.yml)
 
-| Flag ajouté                | Motivation                                                                                  |
-|----------------------------|---------------------------------------------------------------------------------------------|
-|                            |                                                                                             |
-|                            |                                                                                             |
-|                            |                                                                                             |
-|                            |                                                                                             |
-|                            |                                                                                             |
+| Flag ajouté                           | Motivation                                                                                  |
+|---------------------------------------|---------------------------------------------------------------------------------------------|
+| -XX:+UseSerialGC                      | Changement de type de Garbage Collector.                                                    |
+| -XX:MaxHeapSize=2G -XX:MinHeapSize=4M | Réduction de la taille du tas (seuils minimum et maximum).                                  |
+| -XX:ActiveProcessorCount=1            | Limitation du nombre de core CPU a un seul.                                                 |
+|                                       |                                                                                             |
+|                                       |                                                                                             |
