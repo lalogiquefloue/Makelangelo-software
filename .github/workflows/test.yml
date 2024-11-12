@@ -27,7 +27,7 @@ jobs:
         coverage=$(python3 config/coverage.py target/site/jacoco/jacoco.csv) 
         echo "COVERAGE=$coverage" >> $GITHUB_ENV
 
-    - name: Fail if coverage has not improved.
+    - name: Fail if coverage has not improved for default configuration.
       run: |
         coverage=$COVERAGE
         threshold=24.46
@@ -62,7 +62,7 @@ jobs:
         coverage=$(python3 config/coverage.py target/site/jacoco/jacoco.csv) 
         echo "COVERAGE=$coverage" >> $GITHUB_ENV
 
-    - name: Fail if coverage has not improved.
+    - name: Fail if coverage has not improved for configuration 1.
       run: |
         coverage=$COVERAGE
         threshold=24.46
