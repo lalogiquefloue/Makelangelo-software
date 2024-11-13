@@ -52,7 +52,7 @@ jobs:
       timeout-minutes: 15
       run: |
         echo "Configuration 1 - Test build with change of garbage collection type."
-        export MAVEN_OPTS="-XX:+PrintFlagsFinal -XX:+UseSerialGC"
+        export MAVEN_OPTS="-XX:+UseSerialGC"
         ./mvnw -B verify
         unset MAVEN_OPTS
 
@@ -78,7 +78,7 @@ jobs:
       timeout-minutes: 15
       run: |
         echo "Configuration 2 - Test build with reduced heap size."
-        export MAVEN_OPTS="-XX:+PrintFlagsFinal -XX:MaxHeapSize=2G -XX:MinHeapSize=4M"
+        export MAVEN_OPTS="-XX:MaxHeapSize=2G -XX:MinHeapSize=4M"
         ./mvnw -B verify
         unset MAVEN_OPTS
 
@@ -104,7 +104,7 @@ jobs:
       timeout-minutes: 15
       run: |
         echo "Configuration 3 - Test build with 1 cpu core available for multithreading."
-        export MAVEN_OPTS="-XX:+PrintFlagsFinal -XX:ActiveProcessorCount=1"
+        export MAVEN_OPTS="-XX:ActiveProcessorCount=1"
         ./mvnw -B verify
         unset MAVEN_OPTS
 
