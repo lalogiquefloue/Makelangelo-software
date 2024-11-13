@@ -11,8 +11,8 @@ Lien vers la github action: [test.yml](.github/workflows/test.yml)
 
 | Flag ajouté                           | Motivation                                                                                  |
 |---------------------------------------|---------------------------------------------------------------------------------------------|
-| -XX:+UseSerialGC                      | Changement de type de Garbage Collector.                                                    |
-| -XX:MaxHeapSize=2G -XX:MinHeapSize=4M | Réduction de la taille du tas (seuils minimum et maximum).                                  |
-| -XX:ActiveProcessorCount=1            | Limitation du nombre de core CPU a un seul.                                                 |
+| -XX:+UseSerialGC                      | Spécification explicite de l'utilisation du "serial garbage collector".                     |
+| -XX:MaxHeapSize=2G -XX:MinHeapSize=4M | Réduction de la taille du tas (seuils minimum et maximum) pour simuler des environnments plus restrictifs en terme de mémoire disponible. |
+| -XX:ActiveProcessorCount=1            | Limitation du nombre de core CPU considéré a un seul pour restreindre le nombre de core disponible pour la JVM lors de la création de threads. |
 |                                       |                                                                                             |
 |                                       |                                                                                             |
