@@ -14,5 +14,5 @@ Lien vers la github action: [test.yml](.github/workflows/test.yml)
 | -XX:+UseSerialGC                      | Spécification explicite de l'utilisation du "serial garbage collector".                     |
 | -XX:MaxHeapSize=2G -XX:MinHeapSize=4M | Réduction de la taille du tas (seuils minimum et maximum) pour simuler des environnments plus restrictifs en terme de mémoire disponible. |
 | -XX:ActiveProcessorCount=1            | Limitation du nombre de core CPU considéré a un seul pour restreindre le nombre de core disponible pour la JVM lors de la création de threads. |
-|                                       |                                                                                             |
-|                                       |                                                                                             |
+|  -XX:-UseCompressedOops              |  Désactivation des pointeurs d'objets compressés pour voir si l'application fonctionne bien sans cette optimisation.                          |
+| -XX: -TieredCompilation              | Force la JVM à utiliser le compilateur C2 qui est plus lent, mais mieux optimisé. Utile pour détecter des problèmes qui pourraient être masqués par l'optimisation de la compilation. |
