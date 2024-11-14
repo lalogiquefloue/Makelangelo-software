@@ -155,8 +155,8 @@ jobs:
     - name: Build and Test with Maven - Configuration 5
       timeout-minutes: 15
       run: |
-        echo "Configuration 5 - Test build with strict floating-point math."
-        export MAVEN_OPTS="-XX:+StrictArithmetic"
+        echo "Configuration 5 - Test build with tiered compilation disabled."
+        export MAVEN_OPTS="-XX:-TieredCompilation"
         ./mvnw -B verify
         unset MAVEN_OPTS
 
@@ -175,4 +175,25 @@ jobs:
           exit 1
         else
           echo "New coverage: $coverage%. Coverage is improved for configuration 5!"
+          echo "
+                                            |>>>
+                                            |
+                                        _  _|_  _
+                                      |;|_|;|_|;|
+                                      \\\\.    .  /
+                                        \\\\:  .  /
+                                        ||:   |
+                                        ||:.  |
+                                        ||:  .|
+                                        ||:   |       \\,/
+                                        ||: , |            /\`\\
+                                        ||:   |
+                                        ||: . |
+                                  __   ||: , |    __
+                              __  |;;|  ||:   |   |;;|  __
+                              |;;| |;;|  ||:.  |   |;;| |;;|
+
+                                    FORTRESS SECURED!
+                                    ALL TESTS PASSED!
+                              "
         fi
