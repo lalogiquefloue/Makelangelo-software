@@ -124,3 +124,76 @@ jobs:
         else
           echo "New coverage: $coverage%. Coverage is improved for configuration 3!"
         fi
+
+    ###################################################################################
+    - name: Build and Test with Maven - Configuration 4
+      timeout-minutes: 15
+      run: |
+        echo "Configuration 4 - Test build with compressed object pointers disabled."
+        export MAVEN_OPTS="-XX:-UseCompressedOops"
+        ./mvnw -B verify
+        unset MAVEN_OPTS
+
+    - name: Get JaCoCo Coverage - Configuration 4
+      id: coverage_config4  
+      run: |
+        coverage=$(python3 config/coverage.py target/site/jacoco/jacoco.csv) 
+        echo "COVERAGE=$coverage" >> $GITHUB_ENV
+
+    - name: Fail if coverage has not improved for configuration 4.
+      run: |
+        coverage=$COVERAGE
+        threshold=24.46
+        if (( $(echo "$coverage - $threshold <= 0.1" | bc -l) )); then
+          echo "Coverage is not improved for configuration 4."
+          exit 1
+        else
+          echo "New coverage: $coverage%. Coverage is improved for configuration 4!"
+        fi
+
+    ###################################################################################
+    - name: Build and Test with Maven - Configuration 5
+      timeout-minutes: 15
+      run: |
+        echo "Configuration 5 - Test build with tiered compilation disabled."
+        export MAVEN_OPTS="-XX:-TieredCompilation"
+        ./mvnw -B verify
+        unset MAVEN_OPTS
+
+    - name: Get JaCoCo Coverage - Configuration 5
+      id: coverage_config5  
+      run: |
+        coverage=$(python3 config/coverage.py target/site/jacoco/jacoco.csv) 
+        echo "COVERAGE=$coverage" >> $GITHUB_ENV
+
+    - name: Fail if coverage has not improved for configuration 5.
+      run: |
+        coverage=$COVERAGE
+        threshold=24.46
+        if (( $(echo "$coverage - $threshold <= 0.1" | bc -l) )); then
+          echo "Coverage is not improved for configuration 5."
+          exit 1
+        else
+          echo "New coverage: $coverage%. Coverage is improved for configuration 5!"
+          echo "
+                                            |>>>
+                                            |
+                                        _  _|_  _
+                                      |;|_|;|_|;|
+                                      \\\\.    .  /
+                                        \\\\:  .  /
+                                        ||:   |
+                                        ||:.  |
+                                        ||:  .|
+                                        ||:   |       \\,/
+                                        ||: , |            /\`\\
+                                        ||:   |
+                                        ||: . |
+                                  __   ||: , |    __
+                              __  |;;|  ||:   |   |;;|  __
+                              |;;| |;;|  ||:.  |   |;;| |;;|
+
+                                    FORTRESS SECURED!
+                                    ALL TESTS PASSED!
+                              "
+        fi
